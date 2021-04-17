@@ -47,7 +47,7 @@ func (r *TcpRouter) Group(path string) *TcpRouterGroup {
 
 type TcpRouterContext struct {
 	*TcpRouterGroup
-	conn  net.Conn
+	Conn  net.Conn
 	Ctx   context.Context
 	index int8
 }
@@ -57,7 +57,7 @@ func NewTcpRouterContext(conn net.Conn, r *TcpRouter, ctx context.Context) *TcpR
 	*tcpGroup = *r.groups[0]
 	tcpCtx := &TcpRouterContext{
 		TcpRouterGroup: tcpGroup,
-		conn:           conn,
+		Conn:           conn,
 		Ctx:            ctx,
 		index:          0,
 	}
