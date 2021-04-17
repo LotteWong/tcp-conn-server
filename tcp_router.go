@@ -105,7 +105,7 @@ func NewTcpRouteHandler(router *TcpRouter, coreFunc func(ctx *TcpRouterContext) 
 	}
 }
 
-func (h *TcpRouterHandler) ServeTcp(ctx context.Context, conn net.Conn) {
+func (h *TcpRouterHandler) ServeTCP(ctx context.Context, conn net.Conn) {
 	tcpCtx := NewTcpRouterContext(conn, h.router, ctx)
 	tcpCtx.handlers = append(tcpCtx.handlers, func(c *TcpRouterContext) {
 		h.coreFunc(c).ServeTCP(ctx, conn)
